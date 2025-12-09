@@ -152,7 +152,10 @@ elif os.name == "posix" or platform.system() == "Linux":
             getcb = xselGetClipboard
             setcb = xselSetClipboard
         try:
-            import gtk
+#            import gtk
+            import gi
+            gi.require_version('Gtk', '3.0')
+            from gi.repository import Gtk
 
             getcb = gtkGetClipboard
             setcb = gtkSetClipboard

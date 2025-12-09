@@ -12226,7 +12226,11 @@ def main():
     (opts, args) = parser.parse_args()
 
     # create QAPP
-    app = QtWidgets.QApplication(sys.argv)
+    if not QtWidgets.QApplication.instance():
+        app = QtWidgets.QApplication(sys.argv)
+    else:
+        app = QtWidgets.QApplication.instance()
+
     app.setApplicationName("MetExtract")
     app.setApplicationVersion(MetExtractVersion)
 
